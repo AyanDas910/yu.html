@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBI Bank Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f0f4f8;
+}
+
+header{
+    background:#005baa;
+    color:white;
+    padding:20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+.balance{
+    text-align:center;
+    font-size:30px;
+    color:#005baa;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    font-size:18px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    background:#005baa;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+button:hover{
+    background:#003f7f;
+}
+
+#history{
+    margin-top:25px;
+    border-top:2px solid #ddd;
+    padding-top:15px;
+}
+
+ul{
+    list-style:none;
+}
+
+li{
+    padding:10px;
+    border-bottom:1px solid #ccc;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+🏦 SBI BANK MANAGEMENT SYSTEM
+</header>
+
+<div class="container">
+
+<h2>Welcome, Customer</h2>
+
+<div class="balance">
+Balance: ₹<span id="balance">10000</span>
+</div>
+
+<input type="number" id="amount" placeholder="Enter Amount">
+
+<button onclick="deposit()">Deposit</button>
+
+<button onclick="withdraw()">Withdraw</button>
+
+<button onclick="checkBalance()">Check Balance</button>
+
+<div id="history">
+<h3>Transaction History</h3>
+<ul id="list"></ul>
+</div>
+
+</div>
+
+<script>
+
+let balance = 10000;
+
+function deposit(){
+
+let amt = Number(document.getElementById("amount").value);
+
+if(amt>0){
+
+balance += amt;
+
+document.getElementById("balance").innerHTML = balance;
+
+addHistory("Deposited ₹"+amt);
+
+alert("Deposit Successful");
+
+}else{
+
+alert("Enter Valid Amount");
+
+}
+
+}
+
+function withdraw(){
+
+let amt = Number(document.getElementById("amount").value);
+
+if(amt<=0){
+
+alert("Enter Valid Amount");
+
+return;
+
+}
+
+if(amt>balance){
+
+alert("Insufficient Balance");
+
+}else{
+
+balance -= amt;
+
+document.getElementById("balance").innerHTML = balance;
+
+addHistory("Withdraw ₹"+amt);
+
+alert("Withdrawal Successful");
+
+}
+
+}
+
+function checkBalance(){
+
+alert("Current Balance = ₹"+balance);
+
+}
+
+function addHistory(msg){
+
+let li=document.createElement("li");
+
+li.innerHTML=msg;
+
+document.getElementById("list").appendChild(li);
+
+}
+
+</script>
+
+</body>
+</html>
