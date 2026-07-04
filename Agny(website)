@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agny Browser</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#0f766e);
+    color:white;
+    overflow-x:hidden;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+}
+
+.logo{
+    font-size:35px;
+    font-weight:bold;
+    color:#00eaff;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:30px;
+    font-size:18px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#00eaff;
+}
+
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#00eaff;
+}
+
+.hero p{
+    font-size:22px;
+    width:70%;
+    line-height:1.8;
+}
+
+button{
+    margin-top:35px;
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    font-size:20px;
+    cursor:pointer;
+    background:#00eaff;
+    color:black;
+    font-weight:bold;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:white;
+}
+
+.search-box{
+    margin-top:40px;
+    width:70%;
+    max-width:700px;
+    display:flex;
+    background:white;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.search-box input{
+    flex:1;
+    padding:18px;
+    border:none;
+    outline:none;
+    font-size:18px;
+}
+
+.search-box button{
+    margin:0;
+    border-radius:0;
+    width:180px;
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:80px 40px;
+}
+
+.card{
+    width:280px;
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(12px);
+    padding:25px;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#00eaff;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,.2);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Agny</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Features</a>
+<a href="#">Download</a>
+<a href="#">About</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Welcome to <span>Agny Browser</span></h1>
+
+<p>
+Fast • Secure • Modern Browser Experience.<br>
+Built for speed, privacy and simplicity.
+</p>
+
+<div class="search-box">
+
+<input id="search" type="text" placeholder="Search Google...">
+
+<button onclick="searchGoogle()">
+Search
+</button>
+
+</div>
+
+<button onclick="downloadBrowser()">
+Download Agny
+</button>
+
+</section>
+
+<section class="features">
+
+<div class="card">
+<h2>⚡ Lightning Fast</h2>
+<p>Open websites in seconds with a high-performance browsing engine.</p>
+</div>
+
+<div class="card">
+<h2>🔒 Secure</h2>
+<p>Your privacy comes first with advanced protection and safe browsing.</p>
+</div>
+
+<div class="card">
+<h2>🎨 Beautiful UI</h2>
+<p>Clean interface with dark mode and smooth animations.</p>
+</div>
+
+</section>
+
+<footer>
+
+<h2>Agny Browser</h2>
+
+<p>© 2026 Agny Browser. All Rights Reserved.</p>
+
+</footer>
+
+<script>
+
+function searchGoogle(){
+
+let text=document.getElementById("search").value;
+
+if(text==""){
+alert("Please enter something.");
+return;
+}
+
+window.open("https://www.google.com/search?q="+encodeURIComponent(text),"_blank");
+
+}
+
+function downloadBrowser(){
+
+alert("Agny Browser will be available soon!");
+
+}
+
+</script>
+
+</body>
+</html>
